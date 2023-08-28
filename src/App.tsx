@@ -2,9 +2,13 @@
 function App() {
 
   return (
-    <>
-      <h1 className="bg-red-500">Tech Net</h1>
-    </>
+    <div>
+      <div className="">
+          <button className="bg-rose-300 p-6 rounded-lg gap-6">Increment</button>
+          <div>0</div> 
+          <button className="bg-rose-300 p-6 rounded-lg">Decrement</button>
+      </div>
+    </div>
   )
 }
 
