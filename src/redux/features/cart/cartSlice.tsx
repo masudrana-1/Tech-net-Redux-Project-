@@ -16,7 +16,20 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart : (state, action : PayloadAction<IProduct>)=> {
-            state.products.push(action.payload);
+
+            //! product age theke exist kore ki na seta check korar jonno 
+
+            const existing = state.products.find(
+                (product) => product._id === action.payload._id
+            );
+
+            if(existing){
+                console.log('test')
+            }else{
+                
+                state.products.push(action.payload);
+            }
+
         },
     },
 });
