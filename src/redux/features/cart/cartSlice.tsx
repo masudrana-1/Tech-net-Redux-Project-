@@ -24,10 +24,10 @@ const cartSlice = createSlice({
             );
 
             if(existing){
-                console.log('test')
+                existing.quantity = existing.quantity! + 1;
             }else{
                 
-                state.products.push(action.payload);
+                state.products.push({...action.payload, quantity: 1});
             }
 
         },
