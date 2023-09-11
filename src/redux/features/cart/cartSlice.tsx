@@ -5,10 +5,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface ICart {
     products : IProduct[];
+    total: number
 }
 
 const initialState: ICart = {
     products: [],
+    total: 0
 }
 
 const cartSlice = createSlice({
@@ -29,6 +31,9 @@ const cartSlice = createSlice({
                 
                 state.products.push({...action.payload, quantity: 1});
             }
+
+            //! total price
+            state.total += action.payload.price;
         },
 
         removeOneFromCart: (state, action: PayloadAction<IProduct>)=>{
@@ -43,6 +48,9 @@ const cartSlice = createSlice({
                     (product) => product._id !== action.payload._id
                 )
             }
+
+            //! total price
+            state.total -= action.payload.price;
         },
 
         removeFromCart: (state, action: PayloadAction<IProduct>)=>{
