@@ -1,9 +1,10 @@
-import { IProduct } from '@/types/globalTypes';
+
 import { toast } from './ui/use-toast';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '@/redux/hook';
 import { addToCart } from '@/redux/features/cart/cartSlice';
+import { IProduct } from '@/types/globalTypes';
 
 interface IProps {
   product: IProduct;
