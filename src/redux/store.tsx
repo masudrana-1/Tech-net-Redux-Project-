@@ -10,6 +10,10 @@ const store = configureStore({
         product: productReducer,
         [api.reducerPath] : api.reducer,
     },
+
+    //! middleware
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });
 
 
