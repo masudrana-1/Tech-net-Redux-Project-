@@ -21,15 +21,26 @@ export default function ProductReview({ id }: IProps) {
 
   //! Redux post method (post comment )
   const [postComment, options] = usePostCommentMutation();
-  
+
   //! ekhane options ekta object tai distructure kore nicchi 
   const {isLoading, isError, isSuccess} = options;
 
-  console.log(inputValue);
+  console.log(isLoading);
+  console.log(isError);
+  console.log(isSuccess);
 
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(inputValue);
+
+    //! mutation function 
+    const options = {
+      id: id,
+      data: inputValue
+    }
+    postComment( options);
+
 
     setInputValue('');
   };
