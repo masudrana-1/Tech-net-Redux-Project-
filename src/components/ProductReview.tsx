@@ -37,9 +37,9 @@ export default function ProductReview({ id }: IProps) {
     //! mutation function 
     const options = {
       id: id,
-      data: inputValue
+      data: {comment : inputValue}
     }
-    postComment( options);
+    postComment( options );
 
 
     setInputValue('');
