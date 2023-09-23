@@ -10,12 +10,15 @@ interface IProps {
   id: string;
 }
 
-export default function ProductReview({ id }: IProps) {
+export default function ProductReview({id}: IProps) {
   const [inputValue, setInputValue] = useState<string>('');
 
 
   //! Redux get method ( get comment )
-  const {data} = useGetCommentQuery(id);
+  const {data} = useGetCommentQuery(id, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 30000,
+  });
 
   //! Redux post method (post comment )
   const [postComment, options] = usePostCommentMutation();
