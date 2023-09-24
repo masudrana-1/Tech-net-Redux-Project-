@@ -40,8 +40,15 @@ export const createUser = createAsyncThunk(
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {
-        
+    reducers: {},
+    extraReducers: (builder)=> {
+        builder.addCase(createUser.pending, (state)=>{
+            state.isLoading = true
+        }).addCase(createUser.fulfilled, ()=>{
+
+        }).addCase(createUser.rejected, ()=>{
+            
+        })
     }
 });
 
