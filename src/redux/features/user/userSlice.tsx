@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface IUserState {
@@ -20,8 +20,16 @@ const initialState: IUserState = {
 };
 
 
+const createUser = createAsyncThunk(
+    'user/createUser',
+    async ()=>{
+        
+    }
+)
+
+
 const userSlice = createSlice({
-    name: '',
+    name: 'user',
     initialState,
     reducers: {
         
