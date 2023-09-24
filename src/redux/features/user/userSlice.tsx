@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+// import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface IUserState {
     user: {
@@ -28,4 +28,4 @@ const userSlice = createSlice({
     }
 });
 
-export default userSlice.reducer
+export default userSlice.reducer;
