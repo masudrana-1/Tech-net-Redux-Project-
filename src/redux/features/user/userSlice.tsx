@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import type { PayloadAction } from "@reduxjs/toolkit";
 import { auth } from '@/lib/firebase.config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -48,9 +47,9 @@ const userSlice = createSlice({
             state.error = null;
         }).addCase(createUser.fulfilled, (state, action)=>{
             state.user.email = action.payload;
+            state.isLoading = false;
         }).addCase(createUser.rejected, (state, action)=>{
             state.user.email = null;
-            state.isLoading = false;
             state.isError = true;
             state.error = action.error.message!;
         })
