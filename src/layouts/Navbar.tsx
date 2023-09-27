@@ -12,7 +12,10 @@ import {
 import { HiOutlineSearch } from 'react-icons/hi';
 import Cart from '../components/Cart';
 import logo from '../assets/images/technet-logo.png';
-import { useAppSelector } from '@/redux/hook';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/lib/firebase.config';
+import { setUser } from '@/redux/features/user/userSlice';
 
 
 
@@ -22,8 +25,17 @@ export default function Navbar() {
 const {user} = useAppSelector(state => state.user)
 console.log(user)
 
+  //! Redux signout
+  const dispatch = useAppDispatch(); 
+
 const handleLogout = () =>{
   console.log('logout')
+
+  //! signOut 
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    dispatch(setUser(null));
+  })
 }
 
   return (
